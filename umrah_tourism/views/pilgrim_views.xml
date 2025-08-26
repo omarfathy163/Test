@@ -1,0 +1,59 @@
+<odoo>
+  <record id="view_umrah_pilgrim_tree" model="ir.ui.view">
+    <field name="name">umrah.pilgrim.tree</field>
+    <field name="model">umrah.pilgrim</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="passport_no"/>
+        <field name="group_id"/>
+        <field name="status"/>
+        <field name="presence_state"/>
+        <field name="visa_no"/>
+        <field name="visa_valid_until"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_umrah_pilgrim_form" model="ir.ui.view">
+    <field name="name">umrah.pilgrim.form</field>
+    <field name="model">umrah.pilgrim</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="passport_no"/>
+              <field name="group_id"/>
+              <field name="phone"/>
+              <field name="birth_date"/>
+            </group>
+            <group>
+              <field name="passport_issue_date"/>
+              <field name="passport_expiry_date"/>
+              <field name="status"/>
+              <field name="presence_state"/>
+            </group>
+          </group>
+          <group string="Visa Tracking">
+            <field name="visa_request_no"/>
+            <field name="visa_no"/>
+            <field name="visa_valid_until"/>
+          </group>
+          <group string="Documents">
+            <field name="passport_image" filename="passport_no"/>
+            <field name="photo" filename="name"/>
+            <field name="other_docs"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_umrah_pilgrims" model="ir.actions.act_window">
+    <field name="name">Pilgrims</field>
+    <field name="res_model">umrah.pilgrim</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+</odoo>

@@ -1,0 +1,44 @@
+<odoo>
+  <record id="view_umrah_service_tree" model="ir.ui.view">
+    <field name="name">umrah.service.tree</field>
+    <field name="model">umrah.service</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="type"/>
+        <field name="name"/>
+        <field name="vendor_id"/>
+        <field name="city"/>
+        <field name="room_beds"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_umrah_service_form" model="ir.ui.view">
+    <field name="name">umrah.service.form</field>
+    <field name="model">umrah.service</field>
+    <field name="arch" type="xml">
+      <form string="Service">
+        <sheet>
+          <group>
+            <group>
+              <field name="type"/>
+              <field name="name"/>
+              <field name="vendor_id"/>
+              <field name="city"/>
+              <field name="room_beds" attrs="{'invisible':[('type','!=','hotel')]}"/>
+            </group>
+            <group>
+              <field name="notes"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_umrah_services" model="ir.actions.act_window">
+    <field name="name">Services</field>
+    <field name="res_model">umrah.service</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+</odoo>

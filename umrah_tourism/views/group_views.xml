@@ -1,0 +1,81 @@
+<odoo>
+  <record id="view_umrah_group_tree" model="ir.ui.view">
+    <field name="name">umrah.group.tree</field>
+    <field name="model">umrah.group</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="code"/>
+        <field name="main_agent_id"/>
+        <field name="sub_agent_id"/>
+        <field name="state"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_umrah_group_form" model="ir.ui.view">
+    <field name="name">umrah.group.form</field>
+    <field name="model">umrah.group</field>
+    <field name="arch" type="xml">
+      <form string="Group">
+        <header>
+          <button name="action_view_invoices" type="object" string="Invoices" class="oe_highlight"/>
+          <field name="state" widget="statusbar" statusbar_visible="with_agent,new,visa_processing,done"/>
+        </header>
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="code"/>
+              <field name="main_agent_id"/>
+              <field name="sub_agent_id"/>
+            </group>
+            <group>
+              <field name="company_supervisor_id"/>
+              <field name="agent_supervisor_id"/>
+              <field name="state"/>
+              <field name="invoice_count" readonly="1"/>
+            </group>
+          </group>
+          <notebook>
+            <page string="Program">
+              <field name="program_line_ids">
+                <tree editable="bottom">
+                  <field name="service_type"/>
+                  <field name="service_id"/>
+                  <field name="city"/>
+                  <field name="room_beds"/>
+                  <field name="checkin"/>
+                  <field name="checkout"/>
+                  <field name="carrier_name"/>
+                  <field name="go_date"/>
+                  <field name="return_date"/>
+                  <field name="qty"/>
+                  <field name="cost"/>
+                  <field name="price"/>
+                </tree>
+              </field>
+            </page>
+            <page string="Pilgrims">
+              <field name="pilgrim_ids">
+                <tree>
+                  <field name="name"/>
+                  <field name="passport_no"/>
+                  <field name="status"/>
+                  <field name="presence_state"/>
+                  <field name="visa_no"/>
+                </tree>
+              </field>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_umrah_groups" model="ir.actions.act_window">
+    <field name="name">Groups</field>
+    <field name="res_model">umrah.group</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+</odoo>

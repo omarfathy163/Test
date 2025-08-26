@@ -1,0 +1,64 @@
+<odoo>
+  <template id="portal_my_groups" name="My Umrah Groups" inherit_id="portal.portal_my_home" priority="20">
+    <xpath expr="//div[@id='wrap']" position="inside">
+      <h2>My Umrah Groups</h2>
+      <p><a class="btn btn-primary" href="/my/umrah/group/new">Create Group</a></p>
+      <table class="table table-striped">
+        <thead>
+          <tr><th>Name</th><th>Code</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <t t-foreach="groups" t-as="g">
+            <tr>
+              <td><t t-esc="g.name"/></td>
+              <td><t t-esc="g.code or ''"/></td>
+              <td><t t-esc="g.state"/></td>
+            </tr>
+          </t>
+        </tbody>
+      </table>
+    </xpath>
+  </template>
+
+  <template id="portal_group_form" name="Create Umrah Group">
+    <t t-call="web.layout">
+      <div class="oe_structure"/>
+      <div class="container">
+        <h1>Create Group</h1>
+        <form method="post">
+          <div class="form-group">
+            <label>Name</label>
+            <input class="form-control" type="text" name="name" required="required"/>
+          </div>
+          <div class="form-group">
+            <label>Code</label>
+            <input class="form-control" type="text" name="code"/>
+          </div>
+          <button class="btn btn-primary" type="submit">Save</button>
+        </form>
+      </div>
+    </t>
+  </template>
+
+  <template id="portal_my_pilgrims" name="My Pilgrims">
+    <t t-call="portal.portal_layout">
+      <div class="container">
+        <h2>My Pilgrims</h2>
+        <table class="table table-striped">
+          <thead>
+            <tr><th>Name</th><th>Passport</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <t t-foreach="pilgrims" t-as="p">
+              <tr>
+                <td><t t-esc="p.name"/></td>
+                <td><t t-esc="p.passport_no"/></td>
+                <td><t t-esc="p.status"/></td>
+              </tr>
+            </t>
+          </tbody>
+        </table>
+      </div>
+    </t>
+  </template>
+</odoo>

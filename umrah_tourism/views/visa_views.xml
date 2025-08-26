@@ -1,0 +1,50 @@
+<odoo>
+  <record id="view_umrah_visa_tree" model="ir.ui.view">
+    <field name="name">umrah.visa.tree</field>
+    <field name="model">umrah.visa</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="pilgrim_id"/>
+        <field name="type_id"/>
+        <field name="state"/>
+        <field name="request_ref"/>
+        <field name="visa_no"/>
+        <field name="expiry_date"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_umrah_visa_form" model="ir.ui.view">
+    <field name="name">umrah.visa.form</field>
+    <field name="model">umrah.visa</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="pilgrim_id"/>
+              <field name="type_id"/>
+              <field name="state"/>
+            </group>
+            <group>
+              <field name="cost"/>
+              <field name="price"/>
+              <field name="request_ref"/>
+              <field name="visa_no"/>
+              <field name="expiry_date"/>
+              <field name="image"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_umrah_visas" model="ir.actions.act_window">
+    <field name="name">Visas</field>
+    <field name="res_model">umrah.visa</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+</odoo>

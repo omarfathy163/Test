@@ -1,0 +1,50 @@
+<odoo>
+  <record id="view_umrah_contract_tree" model="ir.ui.view">
+    <field name="name">umrah.service.contract.tree</field>
+    <field name="model">umrah.service.contract</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="service_id"/>
+        <field name="service_type"/>
+        <field name="qty"/>
+        <field name="cost_adult"/>
+        <field name="cost_child"/>
+        <field name="cost_infant"/>
+        <field name="room_beds"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_umrah_contract_form" model="ir.ui.view">
+    <field name="name">umrah.service.contract.form</field>
+    <field name="model">umrah.service.contract</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="service_id"/>
+              <field name="service_type" readonly="1"/>
+              <field name="qty"/>
+            </group>
+            <group>
+              <field name="cost_adult"/>
+              <field name="cost_child"/>
+              <field name="cost_infant"/>
+              <field name="room_beds"/>
+              <field name="currency_id"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_umrah_contracts" model="ir.actions.act_window">
+    <field name="name">Service Contracts</field>
+    <field name="res_model">umrah.service.contract</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+</odoo>

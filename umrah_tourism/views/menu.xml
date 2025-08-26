@@ -1,0 +1,12 @@
+<odoo>
+  <menuitem id="menu_umrah_root" name="Umrah & Tourism" sequence="10"/>
+  <menuitem id="menu_umrah_configuration" name="Configuration" parent="menu_umrah_root" sequence="10"/>
+  <menuitem id="menu_umrah_operations" name="Operations" parent="menu_umrah_root" sequence="20"/>
+
+  <menuitem id="menu_umrah_agents" name="Travel Agents" parent="menu_umrah_configuration" action="action_umrah_agents"/>
+  <menuitem id="menu_umrah_services" name="Services" parent="menu_umrah_configuration" action="action_umrah_services"/>
+  <menuitem id="menu_umrah_contracts" name="Service Contracts" parent="menu_umrah_configuration" action="action_umrah_contracts"/>
+  <menuitem id="menu_umrah_groups" name="Groups" parent="menu_umrah_operations" action="action_umrah_groups"/>
+  <menuitem id="menu_umrah_pilgrims" name="Pilgrims" parent="menu_umrah_operations" action="action_umrah_pilgrims"/>
+  <menuitem id="menu_umrah_visas" name="Visas" parent="menu_umrah_operations" action="action_umrah_visas"/>
+</odoo>
